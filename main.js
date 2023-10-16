@@ -6,6 +6,11 @@ import Vue from 'vue'
 import uView from 'uview-ui';
 Vue.use(uView);
 
+// 引入icon-font
+import "./static/font/icon/iconfont.css";
+
+Vue.prototype.$u = uView
+
 const app = new Vue({
 	store,
     ...App

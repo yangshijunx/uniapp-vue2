@@ -8,7 +8,14 @@
       :autoBack="true"
     >
     </u-navbar>
-    <view class="main-content">这是主体内容 </view>
+    <div class="main-content">
+      <u-button
+        type="primary"
+        text="login"
+        @click="$u.debounce(goIndex, 500)"
+      ></u-button>
+      <span class="iconfont icon-home"></span>
+    </div>
   </view>
 </template>
 
@@ -23,6 +30,18 @@ export default {
     },
     leftClick() {
       console.log("点击左侧");
+    },
+    goIndex() {
+      console.log("点击跳转");
+      // 跳转主页
+      uni.navigateTo({
+        url: "/pages/login/index",
+        animationType: "pop-in",
+        animationDuration: 200,
+        complete: function (res) {
+          console.log("跳转结果", res);
+        },
+      });
     },
   },
 };

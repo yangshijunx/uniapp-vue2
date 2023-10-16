@@ -13,7 +13,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "主页"
+				"navigationBarTitleText": "主页",
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -21,22 +22,30 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
 		}
 	],
 	// tabbar配置
 	"tabBar": {
-			"color": "#999999",
-			"selectedColor": "#4b93ff",
-			"borderStyle": "white",
-			"backgroundColor": "#F7F7F7",
-			"fontSize": "16px",
-			"iconWidth": "30px",
-			"list": [{
+		"color": "#999999",
+		"selectedColor": "#4b93ff",
+		"borderStyle": "white",
+		"backgroundColor": "#F7F7F7",
+		"fontSize": "16px",
+		"iconWidth": "30px",
+		"list": [
+			{
 				"pagePath": "pages/chartRoom/index",
 				"iconPath": "static/images/tabbar/chart.png",
 				"selectedIconPath": "static/images/tabbar/chart-active.png",
 				"text": "聊天"
-			},{
+			},
+			{
 				"pagePath": "pages/index/index",
 				"iconPath": "static/images/tabbar/home.png",
 				"selectedIconPath": "static/images/tabbar/home-active.png",
@@ -47,7 +56,8 @@
 				"iconPath": "static/images/tabbar/my.png",
 				"selectedIconPath": "static/images/tabbar/my-active.png",
 				"text": "我的"
-			}]
+			}
+		]
 	},
 	"globalStyle": {
 		"navigationStyle": "default",
