@@ -1,5 +1,9 @@
 <template>
-  <div>登录页面</div>
+  <div>
+    <scroll-refresh-floor :refreshBackgroundColor="'#2bc2d2'">
+      <view>下拉进入二楼</view>
+    </scroll-refresh-floor>
+  </div>
 </template>
 
 <script>

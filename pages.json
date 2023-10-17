@@ -28,6 +28,12 @@
 			"style": {
 				"navigationBarTitleText": "登录"
 			}
+		},
+		{
+			"path": "pages/earth/index",
+			"style": {
+				"navigationBarTitleText": "地球"
+			}
 		}
 	],
 	// tabbar配置

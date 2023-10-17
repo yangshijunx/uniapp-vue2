@@ -14,8 +14,13 @@
         text="login"
         @click="$u.debounce(goIndex, 500)"
       ></u-button>
-      <span class="iconfont icon-home"></span>
+      <u-button
+        type="primary"
+        text="地球"
+        @click="$u.debounce(goEarth, 500)"
+      ></u-button>
     </div>
+    <span class="iconfont icon-home"></span>
   </view>
 </template>
 
@@ -36,6 +41,16 @@ export default {
       // 跳转主页
       uni.navigateTo({
         url: "/pages/login/index",
+        animationType: "pop-in",
+        animationDuration: 200,
+        complete: function (res) {
+          console.log("跳转结果", res);
+        },
+      });
+    },
+    goEarth() {
+      uni.navigateTo({
+        url: "/pages/earth/index",
         animationType: "pop-in",
         animationDuration: 200,
         complete: function (res) {
