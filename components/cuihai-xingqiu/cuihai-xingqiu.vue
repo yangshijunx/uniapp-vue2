@@ -70,6 +70,8 @@ export default {
       });
     // var paper = "querySelectorAll" in document ? document.querySelector(".tagBall") : getClass("tagBall")[0];
     var paper;
+    var CX;
+    var CY;
     uni
       .createSelectorQuery()
       .in(this)
@@ -77,19 +79,19 @@ export default {
       .boundingClientRect()
       .exec((result) => {
         paper = result[0][0];
+        CX = paper.width / 2;
+        CY = paper.height / 2;
+        this.getTags({
+          tagEle: array,
+          CX: CX,
+          CY: CY,
+        });
       });
-    var CX = paper.width / 2,
-      CY = paper.height / 2;
     // this.$ownerInstance.callMethod("getTags", {
     //   tagEle: array,
     //   CX: CX,
     //   CY: CY,
     // });
-    this.getTags({
-      tagEle: array,
-      CX: CX,
-      CY: CY,
-    });
   },
   methods: {
     clearTimer() {
@@ -138,7 +140,7 @@ export default {
         this.tags.push(t);
         this.move(t, i);
       }
-
+      console.log("tag结果", this.tags);
       this.animate(this.tags);
       //this.$forceUpdate()
     },

@@ -10,7 +10,7 @@ Vue.use(uView);
 import "./static/font/icon/iconfont.css";
 
 Vue.prototype.$u = uView
-
+App.mpType = 'app';
 const app = new Vue({
 	store,
     ...App
