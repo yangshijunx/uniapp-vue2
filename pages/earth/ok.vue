@@ -3,7 +3,7 @@
     <canvas
       type="webgl"
       id="webgl"
-      style="width: 100%; height: 400px"
+      style="width: 100%; height: 500px"
       @touchstart="touchStart"
       @touchmove="touchMove"
       @touchend="touchEnd"
@@ -24,8 +24,7 @@ export default {
       .exec((res) => {
         let canvasId = res[0].node._canvasId;
         const mainCanvas = THREE.global.registerCanvas(canvasId, res[0].node);
-        // mainCanvas.style.fillStyle = "rgba(255, 255, 255, 0)";
-        // console.log(res[0].node, "生成的canvas");
+        console.log(res[0].node, "生成的canvas");
         var scene = new THREE.Scene();
         var point = new THREE.PointLight(0xffffff);
         point.position.set(400, 200, 300);
@@ -39,7 +38,7 @@ export default {
           1,
           10000
         );
-        camera.position.set(0, 0, 2000);
+        camera.position.set(0, 0, 3000);
         function createS() {
           // 将文字放在画布中间
           function makeTextCanvas(text, width, height) {
@@ -47,58 +46,21 @@ export default {
               new Date().getTime() + "",
               this
             );
-            // start
-            // console.log(canvas, "canvas");
-            // var c = null;
-            // var backgroundImage = canvas._context.createImageData(30, 30);
-            // backgroundImage.src =
-            //   "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.qifeiye.com%2Fqfy-content%2Fuploads%2F2017%2F12%2F57d4413677e0bdb4d10cf2d15648472c.jpg&refer=http%3A%2F%2Fwww.qifeiye.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616827399&t=93f63af7b0ace376d428d148dbc5e588";
-            // console.log(backgroundImage, "backgroundImage");
-            // backgroundImage.onload = function () {
-            //   canvas.width = width;
-            //   canvas.height = height;
-            //   c = canvas._context;
-            //   c.clearRect(0, 0, c.canvas.width, c.canvas.height);
-            //   // 文字
-            //   c.beginPath();
-            //   c.translate(width / 2, height / 2);
-            //   c.fillStyle = "#65db79"; //文本填充颜色
-            //   c.font = "140px Arial"; //字体样式设置
-            //   c.textBaseline = "middle"; //文本与fillText定义的纵坐标
-            //   c.textAlign = "center"; //文本居中(以fillText定义的横坐标)
-            //   c.fillText(text, 0, 0);
-            // };
-            // end
             canvas.width = width;
             canvas.height = height;
             var c = canvas._context;
-            // 清空画布
-            c.clearRect(0, 0, width, height);
-            // canvas背景方便调试
-            // c.beginPath();
-            // c.rect(0, 0, width, height);
-            // c.fillStyle = "#000";
-            // c.fill();
-            // c.beginPath();
-            // 平移
-            c.translate(width / 2, 40);
-            c.fillStyle = "#65db79"; //文本填充颜色
-            c.font = "40px Arial"; //字体样式设置
+            c.clearRect(0, 0, c.canvas.width, c.canvas.height);
+            // 文字
+            c.beginPath();
+            c.translate(width / 2, height / 2);
+            c.fillStyle = "#ffffff"; //文本填充颜色
+            c.font = "140px Arial"; //字体样式设置
             c.textBaseline = "middle"; //文本与fillText定义的纵坐标
             c.textAlign = "center"; //文本居中(以fillText定义的横坐标)
             c.fillText(text, 0, 0);
-            // 画一个空心的红色的圆
-            c.beginPath();
-            c.arc(0, 60, 20, 0, Math.PI * 2, true);
-            c.fillStyle = "red";
-            c.fill();
-            c.beginPath();
-            c.arc(0, 60, 10, 0, Math.PI * 2, true);
-            c.fillStyle = "#fff";
-            c.fill();
             return c.canvas;
           }
-          var textCanvas = makeTextCanvas("hellomnbv", 300, 160);
+          var textCanvas = makeTextCanvas("hello", 300, 190);
           var texture = new THREE.CanvasTexture(textCanvas);
           texture.generateMipmaps = false;
           texture.minFilter = THREE.LinearFilter;
@@ -116,20 +78,21 @@ export default {
           var theta = Math.sqrt(l * Math.PI) * phi;
           var sprite = createS();
           // 宽，高，
-          sprite.scale.set(300, 160, 1);
-          // 间距
-          sprite.position.setFromSphericalCoords(600, phi, theta);
+          sprite.scale.set(80, 40, 1);
+          // 尺寸
+          sprite.position.setFromSphericalCoords(800, phi, theta);
           group.add(sprite);
         }
         scene.add(group);
         var renderer = new THREE.WebGLRenderer({
           antialias: true,
-          // 背景透明
-          alpha: true,
         });
-        // renderer.setSize(300, 500); //设置渲染区域尺寸
+        renderer.setSize(300, 500); //设置渲染区域尺寸
         renderer.shadowMap.enabled = false;
         renderer.setPixelRatio(uni.getSystemInfoSync().pixelRatio);
+        // var bodyNode = uni.createSelectorQuery().select(".content");
+        // console.log(bodyNode, "获取到的body");
+        // bodyNode.appendChild(renderer.domElement);
         renderer.render(scene, camera);
         var controls = new OrbitControls(camera, renderer.domElement);
         function render() {
@@ -156,9 +119,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.content {
-  display: flex;
-  justify-content: center;
-}
-</style>
+<style lang="scss" scoped></style>

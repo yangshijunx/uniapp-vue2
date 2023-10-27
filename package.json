@@ -1,12 +1,26 @@
 {
-    "id": "cuihai-xingqiu",
-    "name": "仿soul首页星球",
+    "name": "business_card",
     "version": "1.0.0",
-    "description": "仿soul首页星球",
-    "keywords": [
-        "soul",
-        "星球",
-        "球体",
-        "旋转"
-    ]
+    "description": "",
+    "main": "main.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yangshijunx/uniapp-vue2.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "three-uniapp": "0.5.1",
+        "dhtml-uniapp": "0.5.1"
+    },
+    "bugs": {
+        "url": "https://github.com/yangshijunx/uniapp-vue2/issues"
+    },
+    "homepage": "https://github.com/yangshijunx/uniapp-vue2#readme"
 }
