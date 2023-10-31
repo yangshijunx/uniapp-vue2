@@ -51,6 +51,7 @@ export default {
     goEarth() {
       uni.navigateTo({
         url: "/pages/earth/index",
+        // 动画效果
         animationType: "pop-in",
         animationDuration: 200,
         complete: function (res) {
